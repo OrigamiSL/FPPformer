@@ -289,11 +289,11 @@ More parameter information please refer to `main.py`.
 
 We provide a complete command for training and testing FPPformer:
 
-Multivariate forecasting:
+For multivariate forecasting:
 ```
 python -u main.py --data <data> --features <features> --input_len <input_len> --pred_len <pred_len> --encoder_layer <encoder_layer> --patch_size <patch_size> --d_model <d_model> --learning_rate <learning_rate> --dropout <dropout> --batch_size <batch_size> --train_epochs <train_epochs> --patience <patience> --itr <itr> --train
 ```
-Univariate forecasting:
+For univariate forecasting:
 ```
 python -u main_M4.py --data <data> --freq <freq> --input_len <input_len> --pred_len <pred_len> --encoder_layer <encoder_layer> --patch_size <patch_size> --d_model <d_model> --learning_rate <learning_rate> --dropout <dropout> --batch_size <batch_size> --train_epochs <train_epochs> --patience <patience> --itr <itr> --train
 ```
@@ -326,7 +326,7 @@ Here we provide a more detailed and complete command description for training an
 
 
 ## Results
-The experiment parameters of each data set are formated in the `Main.sh` files in the directory `./scripts/`. You can refer to these parameters for experiments, and you can also adjust the parameters to obtain better mse and mae results or draw better prediction figures. We provide the commands for obtain the results of AdaNS with longer input sequence lengths in the file `./scripts/LongInput.sh` and different encoder layers  in the file `./scripts/ParaSen.sh`. 
+The experiment parameters of each data set are formated in the `Main.sh` files in the directory `./scripts/`. You can refer to these parameters for experiments, and you can also adjust the parameters to obtain better mse and mae results or draw better prediction figures. We provide the commands for obtain the results of FPPformer with longer input sequence lengths in the file `./scripts/LongInput.sh` and those of FPPformer with different encoder layers  in the file `./scripts/ParaSen.sh`. 
 
 <p align="center">
 <img src="./img/Multivariate.png" height = "500" alt="" align=center />
