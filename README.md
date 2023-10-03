@@ -36,7 +36,7 @@ pip install -r requirements.txt
 ETT, ECL, Traffic and weather dataset were acquired at: [here](https://drive.google.com/drive/folders/1ZOYpTUa82_jCcxIdTmyr0LXQfvaM9vIy?usp=sharing). Solar dataset were acquired at: [Solar](https://drive.google.com/drive/folders/1Gv1MXjLo5bLGep4bsqDyaNMI2oQC9GH2?usp=sharing). M4 dataset was acquired at: [M4](https://github.com/Mcompetitions/M4-methods).
 
 ### Data Preparation
-After you acquire raw data of all datasets, please separately place them in corresponding folders at `./data`. 
+After you acquire raw data of all datasets, please separately place them in corresponding folders at `./FPPformer/data`. 
 
 We place ETT in the folder `./ETT-data`, ECL in the folder `./electricity`  and weather in the folder `./weather` of [here](https://drive.google.com/drive/folders/1ZOYpTUa82_jCcxIdTmyr0LXQfvaM9vIy?usp=sharing) (the folder tree in the link is shown as below) into folder `./data` and rename them from `./ETT-data`,`./electricity`, `./traffic` and `./weather` to `./ETT`, `./ECL`, `./Traffic` and`./weather` respectively. We rename the file of ECL/Traffic from `electricity.csv`/`traffic.csv` to `ECL.csv`/`Traffic.csv` and rename its last variable from `OT`/`OT` to original `MT_321`/`Sensor_861` separately.
 
@@ -335,16 +335,26 @@ The experiment parameters of each data set are formated in the `Main.sh` files i
 </p>
 
 <p align="center">
-<img src="./img/Univariate.png" height = "500" alt="" align=center />
+<img src="./img/Univariate.png" height = "400" alt="" align=center />
 <br><br>
 <b>Figure 3.</b> Univariate forecasting results
 </p>
 
-Moreover, we present the whole results of multivariate forecasting results with long input sequence lengths and prediction length of 720 in Figure 4.
+Moreover, we present the whole results of multivariate forecasting results with long input sequence lengths in Figure 4, that of ablation study in Figure 5 and that of parameter sensitivity in Figure 6.
 <p align="center">
 <img src="./img/Long.png" height = "500" alt="" align=center />
 <br><br>
 <b>Figure 4.</b> Multivariate forecasting results with long input lengths
+</p>
+<p align="center">
+<img src="./img/Ablation.png" height = "500" alt="" align=center />
+<br><br>
+<b>Figure 5.</b> Ablation results with the prediction length of 720
+</p>
+<p align="center">
+<img src="./img/Parameter.png" height = "500" alt="" align=center />
+<br><br>
+<b>Figure 6.</b> Results of parameter sensitivity on stage numbers
 </p>
 
 ## Contact
