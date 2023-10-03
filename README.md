@@ -340,7 +340,7 @@ The experiment parameters of each data set are formated in the `Main.sh` files i
 <b>Figure 3.</b> Univariate forecasting results
 </p>
 
-Moreover, we present the whole results of multivariate forecasting results with long input sequence lengths in Figure 4.
+Moreover, we present the whole results of multivariate forecasting results with long input sequence lengths and prediction length of 720 in Figure 4.
 <p align="center">
 <img src="./img/Long.png" height = "500" alt="" align=center />
 <br><br>
