@@ -335,7 +335,7 @@ The experiment parameters of each data set are formated in the `Main.sh` files i
 </p>
 
 <p align="center">
-<img src="./img/Univariate.png" height = "400" alt="" align=center />
+<img src="./img/Univariate.png" height = "350" alt="" align=center />
 <br><br>
 <b>Figure 3.</b> Univariate forecasting results
 </p>
@@ -348,7 +348,7 @@ Moreover, we present the full results of multivariate forecasting results with l
 <b>Figure 4.</b> Multivariate forecasting results with long input lengths
 </p>
 <p align="center">
-<img src="./img/Ablation.png" height = "400" alt="" align=center />
+<img src="./img/Ablation.png" height = "300" alt="" align=center />
 <br><br>
 <b>Figure 5.</b> Ablation results with the prediction length of 720
 </p>
