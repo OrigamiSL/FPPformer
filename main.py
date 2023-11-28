@@ -25,6 +25,9 @@ parser.add_argument('--dec_out', type=int, default=7, help='output variable size
 parser.add_argument('--d_model', type=int, default=28, help='hidden dims of model')
 parser.add_argument('--encoder_layer', type=int, default=3)
 parser.add_argument('--patch_size', type=int, default=6, help='the size of each patch')
+parser.add_argument('--Cross', action='store_true',
+                    help='whether to use cross-variable attention'
+                    , default=False)
 
 parser.add_argument('--dropout', type=float, default=0.05, help='dropout')
 parser.add_argument('--num_workers', type=int, default=0, help='data loader num workers')
