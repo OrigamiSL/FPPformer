@@ -216,7 +216,12 @@ Moreover, the default experiment settings/parameters of aforementioned seven bas
 <th>2</th>
 </tr>
 <tr>
-<th rowspan=2>Scaleformer</th>
+<th rowspan=6>Scaleformer</th>
+<th>Basic model</th>
+<th>The basic model</th>
+<th>FEDformer-f</th>
+</tr>
+<tr>
 <th>scales</th>
 <th>Scales in multi-scale</th>
 <th>[16, 8, 4, 2, 1]</th>
@@ -227,7 +232,22 @@ Moreover, the default experiment settings/parameters of aforementioned seven bas
 <th>2</th>
 </tr>
 <tr>
-<th rowspan=2>PatchTST</th>
+<th>mode_select</th>
+<th>The mode selection method</th>
+<th>random</th>
+</tr>
+<tr>
+<th>modes</th>
+<th>The number of modes</th>
+<th>2</th>
+</tr>
+<tr>
+<th>L</th>
+<th>Ignore level</th>
+<th>3</th>
+</tr>
+<tr>
+<th rowspan=5>PatchTST</th>
 <th>patch_len</th>
 <th>Patch length</th>
 <th>16</th>
@@ -236,6 +256,21 @@ Moreover, the default experiment settings/parameters of aforementioned seven bas
 <th>stride</th>
 <th>The stride length</th>
 <th>8</th>
+</tr>
+<tr>
+<th>n_head</th>
+<th>The number of heads in multi-head attention mechanism</th>
+<th>4</th>
+</tr>
+<tr>
+<th>d_model</th>
+<th>The hidden feature dimension</th>
+<th>16</th>
+</tr>
+<tr>
+<th>d_ff</th>
+<th>Dimension of fcn</th>
+<th>128</th>
 </tr>
 <tr>
 <th rowspan=6>FiLM</th>
@@ -291,7 +326,7 @@ We provide a complete command for training and testing FPPformer:
 
 For multivariate forecasting:
 ```
-python -u main.py --data <data> --features <features> --input_len <input_len> --pred_len <pred_len> --encoder_layer <encoder_layer> --patch_size <patch_size> --d_model <d_model> --learning_rate <learning_rate> --dropout <dropout> --batch_size <batch_size> --train_epochs <train_epochs> --patience <patience> --itr <itr> --train
+python -u main.py --data <data> --features <features> --input_len <input_len> --pred_len <pred_len> --encoder_layer <encoder_layer> --patch_size <patch_size> --d_model <d_model> --Cross <Cross> --learning_rate <learning_rate> --dropout <dropout> --batch_size <batch_size> --train_epochs <train_epochs> --patience <patience> --itr <itr> --train
 ```
 For univariate forecasting:
 ```
@@ -318,6 +353,7 @@ Here we provide a more detailed and complete command description for training an
 |    dropout     |                                                  Dropout                                                   |
 | encoder_layer  |                                        The number of encoder layers                                        |
 |   patch_size   |                                           The size of each patch                                           |
+|     Cross      |                                             whether to use cross-variable attention      |
 |      itr       |                                             Experiments times                                              |
 |  train_epochs  |                                      Train epochs of the second stage                                      |
 |   batch_size   |                         The batch size of training input data in the second stage                          |
@@ -326,7 +362,7 @@ Here we provide a more detailed and complete command description for training an
 
 
 ## Results
-The experiment parameters of each data set are formated in the `Main.sh` files in the directory `./scripts/`. You can refer to these parameters for experiments, and you can also adjust the parameters to obtain better mse and mae results or draw better prediction figures. We provide the commands for obtain the results of FPPformer with longer input sequence lengths in the file `./scripts/LongInput.sh` and those of FPPformer with different encoder layers  in the file `./scripts/ParaSen.sh`. 
+The experiment parameters of each data set are formated in the `Main.sh` files in the directory `./scripts/`. You can refer to these parameters for experiments, and you can also adjust the parameters to obtain better mse and mae results or draw better prediction figures. We provide the commands for obtain the results of FPPformer-Cross in the file `./scripts/Cross.sh`, those of FPPformer with longer input sequence lengths in the file `./scripts/LongInput.sh`, those of FPPformer with different encoder layers  in the file `./scripts/ParaSen.sh`. 
 
 <p align="center">
 <img src="./img/Multivariate.png" height = "500" alt="" align=center />
@@ -335,7 +371,7 @@ The experiment parameters of each data set are formated in the `Main.sh` files i
 </p>
 
 <p align="center">
-<img src="./img/Univariate.png" height = "350" alt="" align=center />
+<img src="./img/Univariate.png" height = "400" alt="" align=center />
 <br><br>
 <b>Figure 3.</b> Univariate forecasting results
 </p>
@@ -348,7 +384,7 @@ Moreover, we present the full results of multivariate forecasting results with l
 <b>Figure 4.</b> Multivariate forecasting results with long input lengths
 </p>
 <p align="center">
-<img src="./img/Ablation.png" height = "300" alt="" align=center />
+<img src="./img/Ablation.png" height = "400" alt="" align=center />
 <br><br>
 <b>Figure 5.</b> Ablation results with the prediction length of 720
 </p>

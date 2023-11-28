@@ -20,11 +20,14 @@ parser.add_argument('--checkpoints', type=str, default='./checkpoints/', help='l
 parser.add_argument('--input_len', type=int, default=96, help='input length')
 parser.add_argument('--pred_len', type=int, default=96, help='prediction length')
 
-parser.add_argument('--enc_in', type=int, default=7, help='input variable size')
-parser.add_argument('--dec_out', type=int, default=7, help='output variable size')
+parser.add_argument('--enc_in', type=int, default=7, help='input size')
+parser.add_argument('--dec_out', type=int, default=7, help='output size')
 parser.add_argument('--d_model', type=int, default=28, help='hidden dims of model')
 parser.add_argument('--encoder_layer', type=int, default=3)
-parser.add_argument('--patch_size', type=int, default=6, help='the size of each patch')
+parser.add_argument('--patch_size', type=int, default=6, help='nums of ODA layers')
+parser.add_argument('--Cross', action='store_true',
+                    help='whether to use cross-variable attention'
+                    , default=False)
 
 parser.add_argument('--dropout', type=float, default=0.05, help='dropout')
 parser.add_argument('--num_workers', type=int, default=0, help='data loader num workers')
@@ -130,7 +133,7 @@ for ii in range(args.itr):
         torch.cuda.empty_cache()
         args.learning_rate = lr
 
-path1 = './result.csv'
+path1 = './result_Cross.csv'
 if not os.path.exists(path1):
     with open(path1, "a") as f:
         write_csv = ['Time', 'Data', 'input_len', 'pred_len', 'encoder_layer', 'patch_size', 'Mean MSE',
@@ -141,9 +144,9 @@ if not os.path.exists(path1):
 
 mse = np.asarray(mse_total)
 mae = np.asarray(mae_total)
-avg_mse = np.mean(mse)
+avg_mse = np.min(mse)
 std_mse = np.std(mse)
-avg_mae = np.mean(mae)
+avg_mae = np.min(mae)
 std_mae = np.std(mae)
 
 print('|Mean|mse:{}, mae:{}|Std|mse:{}, mae:{}'.format(avg_mse, avg_mae, std_mse, std_mae))

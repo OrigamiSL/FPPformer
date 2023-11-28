@@ -1,6 +1,7 @@
 from data.data_loader import Dataset_ETT_hour, Dataset_ETT_min, Dataset_Custom
 from exp.exp_basic import Exp_Basic
 from FPPformer.FPPformer import FPPformer
+from FPPformer.FPPformer_Cross import FPPformer_Cross
 
 from utils.tools import EarlyStopping, adjust_learning_rate
 from utils.metrics import metric
@@ -23,14 +24,24 @@ class Exp_Model(Exp_Basic):
         super(Exp_Model, self).__init__(args)
 
     def _build_model(self):
-        model = FPPformer(
-            self.args.input_len,
-            self.args.pred_len,
-            self.args.encoder_layer,
-            self.args.patch_size,
-            self.args.d_model,
-            self.args.dropout
-        ).float()
+        if self.args.Cross:
+            model = FPPformer_Cross(
+                self.args.input_len,
+                self.args.pred_len,
+                self.args.encoder_layer,
+                self.args.patch_size,
+                self.args.d_model,
+                self.args.dropout
+            ).float()
+        else:
+            model = FPPformer(
+                self.args.input_len,
+                self.args.pred_len,
+                self.args.encoder_layer,
+                self.args.patch_size,
+                self.args.d_model,
+                self.args.dropout
+            ).float()
         if self.args.use_multi_gpu and self.args.use_gpu:
             model = nn.DataParallel(model, device_ids=self.args.device_ids)
         return model
