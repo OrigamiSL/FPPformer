@@ -353,7 +353,7 @@ Here we provide a more detailed and complete command description for training an
 |    dropout     |                                                  Dropout                                                   |
 | encoder_layer  |                                        The number of encoder layers                                        |
 |   patch_size   |                                           The size of each patch                                           |
-|     Cross      |                                             whether to use cross-variable attention      |
+|     Cross      |                                             Whether to use cross-variable attention      |
 |      itr       |                                             Experiments times                                              |
 |  train_epochs  |                                      Train epochs of the second stage                                      |
 |   batch_size   |                         The batch size of training input data in the second stage                          |
