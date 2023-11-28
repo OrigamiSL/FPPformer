@@ -7,6 +7,8 @@
 This is the origin Pytorch implementation of FPPformer in the following paper: 
 [Take an Irregular Route: Enhance the Decoder of Time-Series Forecasting Transformer] (Manuscript submitted to IEEE IoT).
 
+It owns two versions. The first version is the default one with channel-independent multivariate forecasting formula. The second version is the one, required by one of the reviewers, with additional cross-variable modules. Two versions are distinguished by the argument '--Cross' in main.py.
+
 ## The Entire Architecture of FPPformer
 The overview of our proposed FPPformer is illustrated in Figure 1 and its major enhancement on vanilla TSFT concentrates on addressing the preceding two problems of decoder.
 <p align="center">
