@@ -132,9 +132,9 @@ if not os.path.exists(path1):
 
 smape = np.asarray(smape_total)
 owa = np.asarray(owa_total)
-avg_smape = np.min(smape)
+avg_smape = np.mean(smape)
 std_smape = np.std(smape)
-avg_owa = np.min(owa)
+avg_owa = np.mean(owa)
 std_owa = np.std(owa)
 
 print('|Mean|smape:{}, owa:{}|Std|smape:{}, owa:{}'.format(avg_smape, avg_owa, std_smape, std_owa))
